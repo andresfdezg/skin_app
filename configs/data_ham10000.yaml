@@ -1,0 +1,12 @@
+# HAM10000 (Harvard Dataverse version). Paths are relative to the project root.
+root: datasets/ham10000
+metadata: HAM10000_metadata
+image_dirs:
+  - HAM10000_images_part_1
+  - HAM10000_images_part_2
+test_metadata: ISIC2018_Task3_Test_GroundTruth.csv
+test_image_dir: ISIC2018_Task3_Test_Images/ISIC2018_Task3_Test_Images
+
+splits_file: splits/ham10000_splits.csv
+val_fraction: 0.2
+seed: 42

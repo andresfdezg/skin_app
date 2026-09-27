@@ -1,0 +1,21 @@
+# Data (never commit images)
+datasets/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Experiment outputs
+runs/
+models/
+*.pt
+*.pth
+*.onnx
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
