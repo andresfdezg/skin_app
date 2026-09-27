@@ -5,7 +5,7 @@ Marca con `[x]` lo que esté hecho.
 
 ## Pendiente ahora
 
-- [X] **Datasets fuera de OneDrive.** Crear `C:\datasets\` y guardar ahí todas las imágenes. Nunca dentro de la carpeta del proyecto.
+- [X] **Datasets fuera de OneDrive.** Crear `C:\Proyectos\vibe_skin\datasets\` y guardar ahí todas las imágenes. Nunca dentro de la carpeta del proyecto.
 - [X] **Decidir si muevo el proyecto fuera de OneDrive** (p. ej. a `C:\Proyectos\vibe_skin`), con GitHub como copia de seguridad. Motivo: `.venv`, checkpoints y la carpeta `.git` generan miles de archivos que OneDrive sincroniza mal.
 - [X] **Descargar HAM10000** desde Kaggle (hace falta cuenta) y descomprimirlo en `C:\datasets\ham10000\`. Pasarle a Claude la ruta.
 - [X] Crear un repositorio en GitHub (privado) para el proyecto.
