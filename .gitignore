@@ -1,5 +1,5 @@
 # Data (never commit images)
-datasets/
+/datasets/
 
 # Python
 .venv/
@@ -8,8 +8,8 @@ __pycache__/
 *.egg-info/
 
 # Experiment outputs
-runs/
-models/
+/runs/
+/models/
 *.pt
 *.pth
 *.onnx
