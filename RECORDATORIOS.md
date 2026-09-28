@@ -19,7 +19,9 @@ Marca con `[x]` lo que esté hecho.
 
 ## Más adelante (fase app)
 
-- [ ] Instalar **Expo Go** en el iPhone.
+- [ ] Instalar **Expo Go** en el iPhone (App Store).
+- [ ] **Abrir la app en el iPhone.** Con la API arrancada, en otra terminal: `cd app` y `npx expo start`. Escanear el QR con la cámara del iPhone y abrirlo en Expo Go. Si Windows pregunta por el firewall para **Node.js**, permitir en redes privadas (Expo usa el puerto 8081).
+- [ ] Probar la app con fotos: una de la galería (p. ej. una imagen de HAM10000 que me pase al móvil) y una foto real de un lunar. Anotar qué tal va.
 - [ ] Aceptar el permiso de **"red local"** que pedirá iOS la primera vez.
 
 ## Datasets en la recámara
@@ -39,6 +41,7 @@ Por ahora solo usamos HAM10000. Los demás se incorporan en iteraciones posterio
 - Calibración de probabilidades (temperature scaling).
 - Grad-CAM para mostrar qué zona ha mirado el modelo.
 - Inferencia en el propio iPhone (CoreML) en lugar de en el servidor.
+- El **Control inteligente de aplicaciones** de Windows también bloquea `hermesc.exe` (compilador de Expo para builds de producción). No afecta a Expo Go; para una build de verdad usaríamos EAS (en la nube).
 - Exportación a ONNX (paso previo a CoreML): el **Control inteligente de aplicaciones** de Windows bloquea una DLL de la librería `ml_dtypes` que usa `onnx`. Cuando haga falta: probar otra versión de la librería, exportar en Google Colab o decidir si desactivo esa protección (no se puede volver a activar sin reinstalar Windows).
 - Acceso a la API fuera de casa (Tailscale) sin montar un servidor en la nube.
 - Aviso legal en la app: herramienta de apoyo/triaje, **no diagnóstico**.

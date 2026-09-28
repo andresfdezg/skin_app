@@ -42,3 +42,13 @@ Single images from the command line: `uv run python -m vibe_skin.predict runs/<r
 ```bash
 uv run pytest
 ```
+
+## Mobile app (Expo, iOS via Expo Go)
+
+```bash
+cd app
+npm install
+npx expo start      # scan the QR code with the iPhone camera, opens in Expo Go
+```
+
+The API must be running and reachable from the phone (same WiFi). The default server address is in `app/.env` (`EXPO_PUBLIC_API_URL`) and can be changed in the app's settings screen.
