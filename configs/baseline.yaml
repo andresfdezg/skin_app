@@ -1,0 +1,25 @@
+# Baseline: EfficientNet-B0 at 224px, head-only warmup then full fine-tuning.
+name: baseline_effb0
+data_config: configs/data_ham10000.yaml
+seed: 42
+
+model:
+  name: efficientnet_b0
+  pretrained: true
+  drop_rate: 0.2
+
+img_size: 224
+batch_size: 64
+num_workers: 6
+
+# Class weights for the loss: "inverse" (n / (k * count)), "sqrt_inverse" or "none"
+class_weighting: inverse
+
+head:            # phase 1: backbone frozen, only the new classifier learns
+  epochs: 3
+  lr: 1.0e-3
+full:            # phase 2: everything trainable, low learning rate
+  epochs: 25
+  lr: 3.0e-4
+  warmup_epochs: 1
+weight_decay: 1.0e-4
