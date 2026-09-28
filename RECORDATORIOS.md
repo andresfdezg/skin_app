@@ -12,17 +12,18 @@ Marca con `[x]` lo que esté hecho.
 - [X] Copiar la cita exacta de Dataverse en `DATA_LICENSE.md`.
 - [ ] (Opcional) Comprobar si en el zip del test de ISIC 2018 está `ISIC_0035068.jpg`. Falta en `datasets/ham10000/ISIC2018_Task3_Test_Images/`; de momento el pipeline la descarta (evaluamos con 1.511 de 1.512 imágenes).
 
-- [ ] **Probar la API desde el iPhone.** Con el servidor arrancado (`uv run uvicorn api.main:app --host 0.0.0.0 --port 8000`) y el iPhone en la misma WiFi, abrir en Safari `http://192.168.1.131:8000/docs`, desplegar `POST /predict`, pulsar "Try it out" y subir una foto. Si no carga: aceptar el aviso del **firewall de Windows** para Python (redes privadas) y comprobar que la red de casa está marcada como "Privada" en Windows.
+- [X] **Probar la API desde el iPhone.** Con el servidor arrancado (`uv run uvicorn api.main:app --host 0.0.0.0 --port 8000`) y el iPhone en la misma WiFi, abrir en Safari `http://192.168.1.131:8000/docs`, desplegar `POST /predict`, pulsar "Try it out" y subir una foto. Si no carga: aceptar el aviso del **firewall de Windows** para Python (redes privadas) y comprobar que la red de casa está marcada como "Privada" en Windows.
 - [ ] (Opcional) Si la IP del PC cambia al reiniciar el router, fijarla en el router (reserva DHCP) para que la app no tenga que cambiarla.
 
 > Nota: al final los datasets están en `C:\Proyectos\vibe_skin\datasets\` (dentro del proyecto pero fuera de OneDrive). La carpeta está en `.gitignore`, así que nunca se sube a GitHub.
 
 ## Más adelante (fase app)
 
-- [ ] Instalar **Expo Go** en el iPhone (App Store).
-- [ ] **Abrir la app en el iPhone.** Con la API arrancada, en otra terminal: `cd app` y `npx expo start`. Escanear el QR con la cámara del iPhone y abrirlo en Expo Go. Si Windows pregunta por el firewall para **Node.js**, permitir en redes privadas (Expo usa el puerto 8081).
-- [ ] Probar la app con fotos: una de la galería (p. ej. una imagen de HAM10000 que me pase al móvil) y una foto real de un lunar. Anotar qué tal va.
-- [ ] Aceptar el permiso de **"red local"** que pedirá iOS la primera vez.
+- [X] Instalar **Expo Go** en el iPhone (App Store).
+- [X] **Cuenta de Expo** (gratis, expo.dev/signup). En iPhone físico, Expo Go exige que el móvil y el PC tengan sesión iniciada con la misma cuenta: en el PC `cd app` y `npx expo login`; en Expo Go, icono de cuenta arriba a la derecha → iniciar sesión.
+- [X] **Abrir la app en el iPhone.** Con la API arrancada, en otra terminal: `cd app` y `npx expo start`. Escanear el QR con la cámara del iPhone y abrirlo en Expo Go. Si Windows pregunta por el firewall para **Node.js**, permitir en redes privadas (Expo usa el puerto 8081).
+- [X] Probar la app con fotos: una de la galería (p. ej. una imagen de HAM10000 que me pase al móvil) y una foto real de un lunar. Anotar qué tal va.
+- [X] Aceptar el permiso de **"red local"** que pedirá iOS la primera vez.
 
 ## Datasets en la recámara
 
