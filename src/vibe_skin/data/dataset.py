@@ -1,7 +1,19 @@
-import cv2
+import io
+from pathlib import Path
+
+import numpy as np
 import pandas as pd
 import torch
+from PIL import Image, ImageOps
 from torch.utils.data import Dataset
+
+
+def load_image(data: bytes | str | Path) -> np.ndarray:
+    """Decode an image into an RGB array, applying the EXIF rotation that phone cameras use.
+    Training, evaluation and the API all read images through this function."""
+    image = Image.open(io.BytesIO(data) if isinstance(data, bytes) else data)
+    image = ImageOps.exif_transpose(image)
+    return np.asarray(image.convert("RGB"))
 
 
 class LesionDataset(Dataset):
@@ -16,5 +28,4 @@ class LesionDataset(Dataset):
         return len(self.paths)
 
     def __getitem__(self, i: int) -> tuple[torch.Tensor, int]:
-        image = cv2.cvtColor(cv2.imread(self.paths[i]), cv2.COLOR_BGR2RGB)
-        return self.transform(image=image)["image"], self.labels[i]
+        return self.transform(image=load_image(self.paths[i]))["image"], self.labels[i]

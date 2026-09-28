@@ -24,3 +24,21 @@ uv run python -m vibe_skin.evaluate runs/<run_dir>             # official ISIC 2
 ```
 
 Each run writes to `runs/<date>_<name>/`: config, best checkpoint, history, metrics and confusion matrices.
+
+## API
+
+```bash
+uv run uvicorn api.main:app --host 0.0.0.0 --port 8000
+```
+
+- `GET /health`: model name and device.
+- `POST /predict`: multipart upload with field `file` (JPEG/PNG). Returns per-class probabilities, top class and malignant probability (mel + bcc + akiec).
+- Interactive docs at `http://<pc-ip>:8000/docs`. The served run is set in `configs/api.yaml`.
+
+Single images from the command line: `uv run python -m vibe_skin.predict runs/<run_dir> photo.jpg`
+
+## Tests
+
+```bash
+uv run pytest
+```

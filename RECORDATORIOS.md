@@ -12,12 +12,14 @@ Marca con `[x]` lo que esté hecho.
 - [X] Copiar la cita exacta de Dataverse en `DATA_LICENSE.md`.
 - [ ] (Opcional) Comprobar si en el zip del test de ISIC 2018 está `ISIC_0035068.jpg`. Falta en `datasets/ham10000/ISIC2018_Task3_Test_Images/`; de momento el pipeline la descarta (evaluamos con 1.511 de 1.512 imágenes).
 
+- [ ] **Probar la API desde el iPhone.** Con el servidor arrancado (`uv run uvicorn api.main:app --host 0.0.0.0 --port 8000`) y el iPhone en la misma WiFi, abrir en Safari `http://192.168.1.131:8000/docs`, desplegar `POST /predict`, pulsar "Try it out" y subir una foto. Si no carga: aceptar el aviso del **firewall de Windows** para Python (redes privadas) y comprobar que la red de casa está marcada como "Privada" en Windows.
+- [ ] (Opcional) Si la IP del PC cambia al reiniciar el router, fijarla en el router (reserva DHCP) para que la app no tenga que cambiarla.
+
 > Nota: al final los datasets están en `C:\Proyectos\vibe_skin\datasets\` (dentro del proyecto pero fuera de OneDrive). La carpeta está en `.gitignore`, así que nunca se sube a GitHub.
 
 ## Más adelante (fase app)
 
 - [ ] Instalar **Expo Go** en el iPhone.
-- [ ] Permitir la conexión en el **firewall de Windows** para el puerto de la API la primera vez que se arranque.
 - [ ] Aceptar el permiso de **"red local"** que pedirá iOS la primera vez.
 
 ## Datasets en la recámara
@@ -37,5 +39,6 @@ Por ahora solo usamos HAM10000. Los demás se incorporan en iteraciones posterio
 - Calibración de probabilidades (temperature scaling).
 - Grad-CAM para mostrar qué zona ha mirado el modelo.
 - Inferencia en el propio iPhone (CoreML) en lugar de en el servidor.
+- Exportación a ONNX (paso previo a CoreML): el **Control inteligente de aplicaciones** de Windows bloquea una DLL de la librería `ml_dtypes` que usa `onnx`. Cuando haga falta: probar otra versión de la librería, exportar en Google Colab o decidir si desactivo esa protección (no se puede volver a activar sin reinstalar Windows).
 - Acceso a la API fuera de casa (Tailscale) sin montar un servidor en la nube.
 - Aviso legal en la app: herramienta de apoyo/triaje, **no diagnóstico**.

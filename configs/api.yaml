@@ -1,0 +1,3 @@
+# Model served by the API. Change run_dir to serve another trained run.
+run_dir: runs/20260928_0249_baseline_effb0
+max_upload_mb: 15

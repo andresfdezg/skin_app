@@ -44,8 +44,8 @@ def predict(model: nn.Module, loader: DataLoader, device: torch.device) -> tuple
     model.eval()
     probs, labels = [], []
     for x, y in loader:
-        with torch.autocast("cuda", dtype=torch.bfloat16):
-            logits = model(x.to(device, non_blocking=True))
+        # fp32 on purpose: same numbers as the API, which serves in fp32
+        logits = model(x.to(device, non_blocking=True))
         probs.append(logits.float().softmax(1).cpu())
         labels.append(y)
     return torch.cat(labels).numpy(), torch.cat(probs).numpy()
