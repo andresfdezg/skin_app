@@ -19,3 +19,6 @@ __pycache__/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Personal notes (kept locally, not published)
+RECORDATORIOS.md
