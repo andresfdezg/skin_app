@@ -1,4 +1,4 @@
-# vibe_skin
+# skin_app
 
 Skin lesion classification from phone photos: a PyTorch training pipeline, a FastAPI inference service and an iOS app (Expo / React Native) that sends a photo and shows the prediction.
 
